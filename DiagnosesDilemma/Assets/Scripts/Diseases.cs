@@ -150,10 +150,12 @@ public class Strain
     }
 
     public StrainVariants strainType { get; private set; }
+    public int button;
 
     public void ChooseStrain()
     {
         strainType = HelperClass.RandomBool() ? StrainVariants.e_Common : StrainVariants.e_Primordial;
+        button = strainType == StrainVariants.e_Common ? 5 : 6;
     }
 
     public void MutateStrain()
