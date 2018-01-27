@@ -50,7 +50,7 @@ public class Disease
         myTransmission.ChooseTransmission((int)myDisease);
         myStrain.ChooseStrain();
 
-        Debug.LogFormat("Disease is {0}. Transmission method is {1}. Strain of disease is {2}", myDisease, myTransmission.transmissionType, myStrain.strainType);
+        Debug.LogFormat("Disease is {0}. Transmission method is {1}. Strain of disease is {2}.\nCorrect Button for Transmission identifying is {3}. Correct Button for Strain Identifying is {4}.", myDisease, myTransmission.transmissionType, myStrain.strainType, myTransmission.myPair.button, myStrain.strainType == Strain.StrainVariants.e_Common ? 5 : 6);
     }
 }
 
@@ -165,6 +165,7 @@ public class Strain
 public class Diseases : MonoBehaviour
 {
     public DiseaseData data = new DiseaseData();
+    [HideInInspector]
     public Disease currDisease = new Disease();
 
     [SerializeField]
@@ -193,7 +194,6 @@ public class Diseases : MonoBehaviour
         if (m_DiseaseInstance != null)
         {
             Destroy(m_DiseaseInstance);
-            Destroy(m_transmissionAppendage);
         }
 
         currDisease.ChooseDisease();
@@ -205,7 +205,7 @@ public class Diseases : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-            CreateDisease();
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //    CreateDisease();
     }
 }

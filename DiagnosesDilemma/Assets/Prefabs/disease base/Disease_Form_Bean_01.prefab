@@ -36,6 +36,7 @@ GameObject:
   - component: {fileID: 4122373103137926}
   - component: {fileID: 33343051147306554}
   - component: {fileID: 23408504224970980}
+  - component: {fileID: 114566215881844354}
   m_Layer: 0
   m_Name: Disease_Form_Bean_01
   m_TagString: Untagged
@@ -51,7 +52,7 @@ Transform:
   m_GameObject: {fileID: 1247820551831668}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4333516326857868}
   m_Father: {fileID: 0}
@@ -111,3 +112,14 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1247820551831668}
   m_Mesh: {fileID: 4300000, guid: 8fdba620164d1594da1b82469e6a3749, type: 3}
+--- !u!114 &114566215881844354
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1247820551831668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a2bddc63090afa488e28d2d85563210, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
