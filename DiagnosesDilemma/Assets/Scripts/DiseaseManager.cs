@@ -56,7 +56,7 @@ public class DiseaseManager : MonoBehaviour
     {
         UpdateTimer();
 
-        if (testCount >= 2)
+        if (testCount >= 3)
         {
             EnableNewspaper("IDIOT SCIENTIST KILLS EVERYONE!");
             audsource.PlayOneShot(fail);

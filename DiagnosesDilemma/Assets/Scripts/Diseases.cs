@@ -46,6 +46,7 @@ public class Disease
     {
         int enumSize = 4;//hardcoded enum size
         myDisease = (DiseaseBaseType)UnityEngine.Random.Range(0, enumSize);
+        //myDisease = DiseaseBaseType.e_Virus;
         diseasePrefab = DiseaseData.Instance.diseaseBasePrefabs[(int)myDisease];
         myTransmission.ChooseTransmission((int)myDisease);
         myStrain.ChooseStrain();
@@ -78,12 +79,28 @@ public class Transmission
 
     public void ChooseTransmission(int _diseaseType)
     {
+        Debug.Log(_diseaseType);
         int enumSize = 6;//hardcoded enum size
         transmissionType = (TransmissionTypes)UnityEngine.Random.Range(0, enumSize);
-        GetPairData(_diseaseType);
+
+        switch (_diseaseType)
+        {
+            case 0://bacteria
+                GetPairDataBacteria(_diseaseType);
+                break;
+            case 1://virus
+                GetPairDataVirus(_diseaseType);
+                break;
+            case 2://fungus
+                GetPairDataFungus(_diseaseType);
+                break;
+            case 3://parasite
+                GetPairDataParasite(_diseaseType);
+                break;
+        }        
     }
 
-    public void GetPairData(int _diseaseType)
+    public void GetPairDataBacteria(int _diseaseType)
     {
         bool rand = HelperClass.RandomBool();
         int offset = _diseaseType * 6;//offset means it gets the correct appendage
@@ -107,7 +124,7 @@ public class Transmission
                 break;
             case TransmissionTypes.e_Livestock:
                 myPair.appendagePrefab = DiseaseData.Instance.transmissionAppendageOptions[offset + (rand ? 5 : 2)];
-                myPair.transmissionColor = DiseaseData.Instance.transmissionColorOptions[2];
+                myPair.transmissionColor = DiseaseData.Instance.transmissionColorOptions[1];
                 myPair.button = DiseaseData.Instance.transmissionButton[rand ? 1 : 3];
                 break;
             case TransmissionTypes.e_Airborne:
@@ -119,6 +136,144 @@ public class Transmission
                 myPair.appendagePrefab = DiseaseData.Instance.transmissionAppendageOptions[offset + (rand ? 4 : 5)];
                 myPair.transmissionColor = DiseaseData.Instance.transmissionColorOptions[rand ? 0 : 3];
                 myPair.button = DiseaseData.Instance.transmissionButton[rand ? 1 : 3];
+                break;
+
+            case TransmissionTypes.e_DEFAULT:
+                Debug.LogWarning("Haven't set transmission type");
+                break;
+            default:
+                Debug.LogWarning("Haven't set transmission type");
+                break;
+        }
+    }
+    public void GetPairDataVirus(int _diseaseType)
+    {
+        bool rand = HelperClass.RandomBool();
+        int offset = _diseaseType * 6;//offset means it gets the correct appendage
+        switch (transmissionType)
+        {
+            case TransmissionTypes.e_Bird:
+                //TODO: allocate the list data and hardcode it in
+                myPair.appendagePrefab = DiseaseData.Instance.transmissionAppendageOptions[offset + (rand ? 2 : 5)];
+                myPair.transmissionColor = DiseaseData.Instance.transmissionColorOptions[0];
+                myPair.button = DiseaseData.Instance.transmissionButton[rand ? 0 : 1];
+                break;
+            case TransmissionTypes.e_Rodent:
+                myPair.appendagePrefab = DiseaseData.Instance.transmissionAppendageOptions[offset + (rand ? 2 : 5)];
+                myPair.transmissionColor = DiseaseData.Instance.transmissionColorOptions[rand ? 1 : 0];
+                myPair.button = DiseaseData.Instance.transmissionButton[rand ? 1 : 3];
+                break;
+            case TransmissionTypes.e_Insect:
+                myPair.appendagePrefab = DiseaseData.Instance.transmissionAppendageOptions[offset + (rand ? 4 : 0)];
+                myPair.transmissionColor = DiseaseData.Instance.transmissionColorOptions[rand ? 2 : 3];
+                myPair.button = DiseaseData.Instance.transmissionButton[rand ? 2 : 3];
+                break;
+            case TransmissionTypes.e_Livestock:
+                myPair.appendagePrefab = DiseaseData.Instance.transmissionAppendageOptions[offset + (rand ? 2 : 4)];
+                myPair.transmissionColor = DiseaseData.Instance.transmissionColorOptions[rand ? 0 : 2];
+                myPair.button = DiseaseData.Instance.transmissionButton[rand ? 0 : 2];
+                break;
+            case TransmissionTypes.e_Airborne:
+                myPair.appendagePrefab = DiseaseData.Instance.transmissionAppendageOptions[offset + (rand ? 5 : 0)];
+                myPair.transmissionColor = DiseaseData.Instance.transmissionColorOptions[rand ? 2 : 3];
+                myPair.button = DiseaseData.Instance.transmissionButton[rand ? 1 : 2];
+                break;
+            case TransmissionTypes.e_Waterborne:
+                myPair.appendagePrefab = DiseaseData.Instance.transmissionAppendageOptions[offset + (rand ? 4 : 5)];
+                myPair.transmissionColor = DiseaseData.Instance.transmissionColorOptions[2];
+                myPair.button = DiseaseData.Instance.transmissionButton[rand ? 3 : 1];
+                break;
+
+            case TransmissionTypes.e_DEFAULT:
+                Debug.LogWarning("Haven't set transmission type");
+                break;
+            default:
+                Debug.LogWarning("Haven't set transmission type");
+                break;
+        }
+    }
+    public void GetPairDataFungus(int _diseaseType)
+    {
+        bool rand = HelperClass.RandomBool();
+        int offset = _diseaseType * 6;//offset means it gets the correct appendage
+        switch (transmissionType)
+        {
+            case TransmissionTypes.e_Bird:
+                //TODO: allocate the list data and hardcode it in
+                myPair.appendagePrefab = DiseaseData.Instance.transmissionAppendageOptions[offset + (rand ? 2 : 5)];
+                myPair.transmissionColor = DiseaseData.Instance.transmissionColorOptions[rand ? 1 :3];
+                myPair.button = DiseaseData.Instance.transmissionButton[rand ? 0 : 2];
+                break;
+            case TransmissionTypes.e_Rodent:
+                myPair.appendagePrefab = DiseaseData.Instance.transmissionAppendageOptions[offset + 5];
+                myPair.transmissionColor = DiseaseData.Instance.transmissionColorOptions[rand ? 0 : 3];
+                myPair.button = DiseaseData.Instance.transmissionButton[rand ? 0 : 3];
+                break;
+            case TransmissionTypes.e_Insect:
+                myPair.appendagePrefab = DiseaseData.Instance.transmissionAppendageOptions[offset + (rand ? 5 : 0)];
+                myPair.transmissionColor = DiseaseData.Instance.transmissionColorOptions[rand ? 0 : 1];
+                myPair.button = DiseaseData.Instance.transmissionButton[rand ? 3 : 1];
+                break;
+            case TransmissionTypes.e_Livestock:
+                myPair.appendagePrefab = DiseaseData.Instance.transmissionAppendageOptions[offset + (rand ? 4 : 5)];
+                myPair.transmissionColor = DiseaseData.Instance.transmissionColorOptions[3];
+                myPair.button = DiseaseData.Instance.transmissionButton[rand ? 1 : 2];
+                break;
+            case TransmissionTypes.e_Airborne:
+                myPair.appendagePrefab = DiseaseData.Instance.transmissionAppendageOptions[offset + (rand ? 2 : 4)];
+                myPair.transmissionColor = DiseaseData.Instance.transmissionColorOptions[rand ? 0 : 2];
+                myPair.button = DiseaseData.Instance.transmissionButton[rand ? 0 : 1];
+                break;
+            case TransmissionTypes.e_Waterborne:
+                myPair.appendagePrefab = DiseaseData.Instance.transmissionAppendageOptions[offset + (rand ? 1 : 0)];
+                myPair.transmissionColor = DiseaseData.Instance.transmissionColorOptions[1];
+                myPair.button = DiseaseData.Instance.transmissionButton[rand ? 2 : 3];
+                break;
+
+            case TransmissionTypes.e_DEFAULT:
+                Debug.LogWarning("Haven't set transmission type");
+                break;
+            default:
+                Debug.LogWarning("Haven't set transmission type");
+                break;
+        }
+    }
+    public void GetPairDataParasite(int _diseaseType)
+    {
+        bool rand = HelperClass.RandomBool();
+        int offset = _diseaseType * 6;//offset means it gets the correct appendage
+        switch (transmissionType)
+        {
+            case TransmissionTypes.e_Bird:
+                //TODO: allocate the list data and hardcode it in
+                myPair.appendagePrefab = DiseaseData.Instance.transmissionAppendageOptions[offset + (rand ? 2 : 1)];
+                myPair.transmissionColor = DiseaseData.Instance.transmissionColorOptions[2];
+                myPair.button = DiseaseData.Instance.transmissionButton[rand ? 0 : 1];
+                break;
+            case TransmissionTypes.e_Rodent:
+                myPair.appendagePrefab = DiseaseData.Instance.transmissionAppendageOptions[offset + (rand ? 2 : 0)];
+                myPair.transmissionColor = DiseaseData.Instance.transmissionColorOptions[rand ? 3 : 1];
+                myPair.button = DiseaseData.Instance.transmissionButton[rand ? 1 : 2];
+                break;
+            case TransmissionTypes.e_Insect:
+                myPair.appendagePrefab = DiseaseData.Instance.transmissionAppendageOptions[offset + 2];
+                myPair.transmissionColor = DiseaseData.Instance.transmissionColorOptions[rand ? 2 : 3];
+                myPair.button = DiseaseData.Instance.transmissionButton[rand ? 2 : 3];
+                break;
+            case TransmissionTypes.e_Livestock:
+                myPair.appendagePrefab = DiseaseData.Instance.transmissionAppendageOptions[offset + (rand ? 1 : 5)];
+                myPair.transmissionColor = DiseaseData.Instance.transmissionColorOptions[0];
+                myPair.button = DiseaseData.Instance.transmissionButton[rand ? 3 : 2];
+                break;
+            case TransmissionTypes.e_Airborne:
+                myPair.appendagePrefab = DiseaseData.Instance.transmissionAppendageOptions[offset + (rand ? 0 : 1)];
+                myPair.transmissionColor = DiseaseData.Instance.transmissionColorOptions[rand ? 1 : 0];
+                myPair.button = DiseaseData.Instance.transmissionButton[rand ? 0 : 1];
+                break;
+            case TransmissionTypes.e_Waterborne:
+                myPair.appendagePrefab = DiseaseData.Instance.transmissionAppendageOptions[offset + (rand ? 5 : 1)];
+                myPair.transmissionColor = DiseaseData.Instance.transmissionColorOptions[rand ? 0 : 2];
+                myPair.button = DiseaseData.Instance.transmissionButton[rand ? 0 : 3];
                 break;
 
             case TransmissionTypes.e_DEFAULT:
@@ -207,7 +362,7 @@ public class Diseases : MonoBehaviour
 
     private void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //    CreateDisease();
+        if (Input.GetKeyDown(KeyCode.Space))
+            CreateDisease();
     }
 }
