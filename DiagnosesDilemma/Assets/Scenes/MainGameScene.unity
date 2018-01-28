@@ -316,7 +316,7 @@ Prefab:
     - target: {fileID: 114680790564559012, guid: b2ae2e05a5c0fea4199f0a1fb3c9d552,
         type: 2}
       propertyPath: m_Text
-      value: TEXT
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 114680790564559012, guid: b2ae2e05a5c0fea4199f0a1fb3c9d552,
         type: 2}
