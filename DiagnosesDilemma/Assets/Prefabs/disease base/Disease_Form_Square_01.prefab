@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 114988221224006904}
   m_Layer: 0
   m_Name: Disease_Form_Square_01
-  m_TagString: Untagged
+  m_TagString: disease
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
