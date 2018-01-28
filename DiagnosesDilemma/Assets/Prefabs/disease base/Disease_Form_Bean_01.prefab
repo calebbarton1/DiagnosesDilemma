@@ -37,6 +37,7 @@ GameObject:
   - component: {fileID: 33343051147306554}
   - component: {fileID: 23408504224970980}
   - component: {fileID: 114566215881844354}
+  - component: {fileID: 114549273376208520}
   m_Layer: 0
   m_Name: Disease_Form_Bean_01
   m_TagString: Untagged
@@ -112,6 +113,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1247820551831668}
   m_Mesh: {fileID: 4300000, guid: 8fdba620164d1594da1b82469e6a3749, type: 3}
+--- !u!114 &114549273376208520
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1247820551831668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fff8b5026367934d94da47d99049dbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114566215881844354
 MonoBehaviour:
   m_ObjectHideFlags: 1

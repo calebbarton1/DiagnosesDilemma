@@ -24,9 +24,9 @@ public class WorldtoScreenButton : MonoBehaviour
 
     private void UpdatePos()
     {
-        Vector2 pos = RectTransformUtility.WorldToScreenPoint(m_cam, buttonTarget.transform.position);
-        Vector2 localPos;
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(GetComponentInParent<RectTransform>(), pos, m_cam, out localPos);
-        rect.transform.position = localPos;
+        Vector2 pos = m_cam.WorldToViewportPoint(buttonTarget.transform.TransformPoint(buttonTarget.transform.position));
+        pos.y *= -1;
+        rect.anchorMax = pos;
+        rect.anchorMin = pos;
     }
 }

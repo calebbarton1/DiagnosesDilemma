@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33048354397319738}
   - component: {fileID: 23704652620042358}
   - component: {fileID: 114790844862634394}
+  - component: {fileID: 114906755793545868}
   m_Layer: 0
   m_Name: Disease_Form_Sphere_01
   m_TagString: Untagged
@@ -121,5 +122,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a2bddc63090afa488e28d2d85563210, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114906755793545868
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1261295482358700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fff8b5026367934d94da47d99049dbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
